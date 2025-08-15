@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مهارة</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Tahoma', sans-serif;
+            background-color: #A67C52; /* اللون البني */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        img {
+            max-width: 200px;
+            height: auto;
+        }
+
+        h2 {
+            color: #1A2238; /* أزرق غامق */
+            font-size: 28px;
+            margin-top: 20px;
+        }
+
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+        }
+
+        button {
+            border: none;
+            padding: 12px 30px;
+            font-size: 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.1s, opacity 0.1s;
+        }
+
+        .start {
+            background-color: #1A2238;
+            color: white;
+        }
+
+        .delete {
+            background-color: #E3B15A;
+            color: #1A2238;
+        }
+
+        button:active {
+            transform: scale(0.95);
+            opacity: 0.8;
+        }
+
+        #status {
+            margin-top: 20px;
+            font-size: 18px;
+            color: white;
+            background: rgba(0,0,0,0.3);
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ضع صورة الشعار هنا -->
+    <img src="\img\logomaher.png" alt="صورة تجريبية" width="300">
+
+    
+    <div class="buttons">
+        <button class="start" onclick="startWorkflow()">ابدأ</button>
+        <button class="delete" onclick="deleteWorkflow()">احذف</button>
+    </div>
+
+    <div id="status"></div>
+
+    <script>
+        function showStatus(message, color) {
+            const statusDiv = document.getElementById('status');
+            statusDiv.textContent = message;
+            statusDiv.style.backgroundColor = color;
+            statusDiv.style.display = 'block';
+        }
+
+        function startWorkflow() {
+            fetch('https://nora132123.app.n8n.cloud/webhook/fd730c50-24b0-440d-b7e0-1577e60ce4f7', { method: 'GET' })
+                .then(() => showStatus('✅ تم تشغيل وورك فلو 1 (ابدأ)', '#28a745'))
+                .catch(() => showStatus('❌ حدث خطأ في تشغيل وورك فلو 1', '#dc3545'));
+        }
+
+        function deleteWorkflow() {
+            fetch('https://nora132123.app.n8n.cloud/webhook/05a847c4-8b19-4eae-b99d-6a746e3212c0', { method: 'GET' })
+                .then(() => showStatus('🗑️ تم تشغيل وورك فلو 2 (احذف)', '#ffc107'))
+                .catch(() => showStatus('❌ حدث خطأ في تشغيل وورك فلو 2', '#dc3545'));
+        }
+    </script>
+
+</body>
+</html>
