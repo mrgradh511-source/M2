@@ -93,18 +93,19 @@
 
         function startWorkflow() {
             fetch('https://marwan652478782347.app.n8n.cloud/webhook/fd730c50-24b0-440d-b7e0-1577e60ce4f7', { method: 'GET' })
-                .then(() => showStatus('✅ شغال العقود ثواني بس ', '#28a745'))
+                .then(() => showStatus('✅ شغال على العقود ثواني بس ', '#28a745'))
                 .catch(() => showStatus('❌ الوضع مب طيب يبي له اصلاحات ', '#dc3545'));
         }
 
         function deleteWorkflow() {
-            fetch('https://nora132123.app.n8n.cloud/webhook/05a847c4-8b19-4eae-b99d-6a746e3212c0', { method: 'GET' })
-                .then(() => showStatus('🗑️ تم تشغيل وورك فلو 2 (احذف)', '#ffc107'))
-                .catch(() => showStatus('❌ حدث خطأ في تشغيل وورك فلو 2', '#dc3545'));
+            fetch('https://marwan652478782347.app.n8n.cloud/webhook/05a847c4-8b19-4eae-b99d-6a746e3212c0', { method: 'GET' })
+                .then(() => showStatus('🗑️ تم يالامير رجع وكاله ', '#ffc107'))
+                .catch(() => showStatus('❌ الوضع مب طيب يبي له اصلاحات', '#dc3545'));
         }
     </script>
 
 </body>
 </html>
+
 
 
